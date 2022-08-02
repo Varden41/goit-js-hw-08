@@ -28,11 +28,9 @@ function onFormSubmit(e) {
 function restoreInput() {
   const savedObject = localStorage.getItem(LOCALSTORAGE_KEY);
   const parsedObject = JSON.parse(savedObject);
-
-  if (parsedObject) {
-    refs.message.value = parsedObject.message;
+  if (savedObject === null) {
+    return;
   }
-  if (parsedObject) {
-    refs.email.value = parsedObject.email;
-  }
+  refs.message.value = parsedObject.message;
+  refs.email.value = parsedObject.email;
 }
