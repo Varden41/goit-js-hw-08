@@ -29,9 +29,11 @@ function restoreInput() {
   const savedObject = localStorage.getItem(LOCALSTORAGE_KEY);
   const parsedObject = JSON.parse(savedObject);
 
-  if (savedObject === null) {
+  if (!savedObject) {
     return;
   }
-  refs.message.value = parsedObject.message;
-  refs.email.value = parsedObject.email;
+  for (const key in parsedObject) {
+    refs[key].value = parsedObject[key];
+    // refs.message.value = parsedObject.message;
+  }
 }
