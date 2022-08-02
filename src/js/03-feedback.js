@@ -28,6 +28,7 @@ function onFormSubmit(e) {
 function restoreInput() {
   const savedObject = localStorage.getItem(LOCALSTORAGE_KEY);
   const parsedObject = JSON.parse(savedObject);
+
   if (savedObject === null) {
     return;
   }
